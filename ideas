@@ -1,44 +1,41 @@
-``Ideias que tive `` 
 
--  Gestor Financeiro com Análise de Padrões (Complexidade: Média-Alta)
-A Ideia: Um sistema de linha de comando (ou com interface gráfica) onde o usuário cadastra suas despesas e receitas. O sistema, então, analisa esses dados para encontrar padrões.
+# Ideias de Projetos em POO (Java)
 
- - Como aplicar POO:
+## 1. Gestor Financeiro com Análise de Padrões (Complexidade: Média-Alta)
 
-Herança: Crie uma classe Transacao e classes filhas Receita e Despesa.
+### A Ideia
+Um sistema de linha de comando (ou com interface gráfica) onde o usuário cadastra suas despesas e receitas. O sistema, então, analisa esses dados para encontrar padrões.
 
-Composição: Uma ContaBancaria tem uma lista de Transacao. Um Usuario tem uma lista de ContaBancaria.
+### Como aplicar POO
+* **Herança:** Crie uma classe `Transacao` e classes filhas `Receita` e `Despesa`.
+* **Composição:** Uma `ContaBancaria` *tem uma* lista de `Transacao`. Um `Usuario` *tem uma* lista de `ContaBancaria`.
+* **Encapsulamento:** O saldo de uma conta é privado e só pode ser alterado através de métodos como `depositar()` ou `sacar()`, que recebem um objeto `Transacao`.
+* **Interfaces:** Crie uma interface `Analisador` com um método `analisar(List<Transacao> transacoes)`. Você pode ter várias implementações: `AnalisadorDeGastosPorCategoria`, `AnalisadorDePicosDeReceita`, etc.
 
-Encapsulamento: O saldo de uma conta é privado e só pode ser alterado através de métodos como depositar() ou sacar(), que recebem um objeto Transacao.
+### O Fator "Uau" 🤩
+* **A Análise de Dados:** A parte "mágica" é o sistema gerar insights automáticos, como: "Detectamos que 40% das suas despesas em Maio foram com 'Alimentação'" ou "Seus gastos com 'Transporte' aumentaram 15% em relação ao mês anterior".
+* **Gráficos:** Use uma biblioteca como `JFreeChart` para gerar gráficos de pizza ou de barras e salvá-los como imagem. Isso transforma dados em informação visualmente atraente.
 
-Interfaces: Crie uma interface Analisador com um método analisar(List<Transacao> transacoes). Você pode ter várias implementações: AnalisadorDeGastosPorCategoria, AnalisadorDePicosDeReceita, etc.
+---
 
-O Fator "Uau" 🤩:
+## 2. Intérprete de Linguagem de Roteiro Simples (Complexidade: Alta)
 
-A Análise de Dados: A parte "mágica" é o sistema gerar insights automáticos, como: "Detectamos que 40% das suas despesas em Maio foram com 'Alimentação'" ou "Seus gastos com 'Transporte' aumentaram 15% em relação ao mês anterior".
+### A Ideia
+Crie sua própria linguagem de programação simples para controlar um personagem em um labirinto ou para desenhar formas geométricas na tela. Ex: `AVANCE 10`, `VIRE 90`, `PINTE VERMELHO`.
 
-Gráficos: Use uma biblioteca como JFreeChart para gerar gráficos de pizza ou de barras e salvá-los como imagem. Isso transforma dados em informação visualmente atraente.
+### Como aplicar POO
+* **Padrão de Projeto Command:** Essa é a estrela aqui. Crie uma interface `Comando` com um método `executar()`. Crie classes concretas para cada comando: `ComandoAvancar`, `ComandoVirar`, etc.
+* **Polimorfismo:** O interpretador lê o texto, cria uma lista de objetos `Comando` e depois simplesmente percorre a lista chamando `comando.executar()` para cada um. Ele não precisa saber qual comando específico está executando.
+* **Abstração:** O "Executor" (que pode ser uma `Tartaruga` gráfica, um `Robô`, etc.) é uma classe abstrata que sabe como realizar as ações básicas (mover, virar).
 
-4. Intérprete de Linguagem de Roteiro Simples (Complexidade: Alta)
-A Ideia: Crie sua própria linguagem de programação simples para controlar um personagem em um labirinto ou para desenhar formas geométricas na tela. Ex: AVANCE 10, VIRE 90, PINTE VERMELHO.
+### O Fator "Uau" 🤩
+* **Metaprogramação:** Você não criou só um programa, você criou um programa que *executa outros programas*. Isso é conceitualmente muito avançado e impressionante.
+* **Saída Visual:** O resultado da execução do "script" ser um desenho na tela (com JavaFX/Swing) ou a solução de um labirinto é uma prova de conceito fantástica.
 
-Como aplicar POO:
+---
 
-Padrão de Projeto Command: Essa é a estrela aqui. Crie uma interface Comando com um método executar(). Crie classes concretas para cada comando: ComandoAvancar, ComandoVirar, etc.
+## Dicas Finais para a Vitória
 
-Polimorfismo: O interpretador lê o texto, cria uma lista de objetos Comando e depois simplesmente percorre a lista chamando comando.executar() para cada um. Ele não precisa saber qual comando específico está executando.
-
-Abstração: O "Executor" (que pode ser uma Tartaruga gráfica, um Robô, etc.) é uma classe abstrata que sabe como realizar as ações básicas (mover, virar).
-
-O Fator "Uau" 🤩:
-
-Metaprogramação: Você não criou só um programa, você criou um programa que executa outros programas. Isso é conceitualmente muito avançado e impressionante.
-
-Saída Visual: O resultado da execução do "script" ser um desenho na tela (com JavaFX/Swing) ou a solução de um labirinto é uma prova de conceito fantástica.
-
-Dicas Finais para a Vitória
-Comece pelo UML: Antes de escrever uma linha de código, desenhe seu Diagrama de Classes. Isso força você a pensar na estrutura e nas relações, e é um artefato excelente para apresentar.
-
-Versionamento com Git: Use o GitHub. Crie commits claros e organizados. Isso mostra que você segue boas práticas de desenvolvimento.
-
-Prepare uma Apresentação Matadora: Não apenas mostre o código. Conte a história do problema, explique a sua solução de modelagem (mostre o UML!), e faça uma demonstração ao vivo. O entusiasmo vende o projeto!
+* **Comece pelo UML:** Antes de escrever uma linha de código, desenhe seu **Diagrama de Classes**. Isso força você a pensar na estrutura e nas relações, e é um artefato excelente para apresentar.
+* **Versionamento com Git:** Use o **GitHub**. Crie commits claros e organizados. Isso mostra que você segue boas práticas de desenvolvimento.
+* **Prepare uma Apresentação Matadora:** Não apenas mostre o código. Conte a história do problema, explique a sua solução de modelagem (mostre o UML!), e faça uma **demonstração ao vivo**. O entusiasmo vende o projeto!
